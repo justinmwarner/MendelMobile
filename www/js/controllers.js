@@ -13,6 +13,17 @@ angular.module('starter.controllers', [])
 
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {
+    cordova.plugins.barcodeScanner.scan(
+      function (result) {
+          alert("We got a barcode\n" +
+                "Result: " + result.text + "\n" +
+                "Format: " + result.format + "\n" +
+                "Cancelled: " + result.cancelled);
+      }, 
+      function (error) {
+          alert("Scanning failed: " + error);
+      }
+   );
     Chats.remove(chat);
   };
 })
