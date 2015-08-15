@@ -56,7 +56,8 @@ module.exports.metadata =
     "cordova-plugin-device": "1.0.1",
     "cordova-plugin-splashscreen": "2.1.0",
     "cordova-plugin-whitelist": "1.0.0",
-    "phonegap-plugin-barcodescanner": "4.0.1"
+    "phonegap-plugin-barcodescanner": "4.0.1",
+    "com.jamiestarke.webviewdebug": "1.0.8"
 }
 // BOTTOM OF METADATA
 });
