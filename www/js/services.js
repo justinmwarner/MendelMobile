@@ -1,6 +1,7 @@
 angular.module('starter.services', [])
 
 .factory('Chats', function() {
+  console.log("juwar 0");
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
@@ -33,12 +34,15 @@ angular.module('starter.services', [])
 
   return {
     all: function() {
+  console.log("juwar 41");
       return chats;
     },
     remove: function(chat) {
+  console.log("juwar 14");
       chats.splice(chats.indexOf(chat), 1);
     },
     get: function(chatId) {
+  console.log("juwar 42");
       for (var i = 0; i < chats.length; i++) {
         if (chats[i].id === parseInt(chatId)) {
           return chats[i];

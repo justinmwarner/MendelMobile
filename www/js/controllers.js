@@ -32,10 +32,12 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
+  console.log("juwar 6");
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
 .controller('AccountCtrl', function($scope) {
+  console.log("juwar 5");
   $scope.settings = {
     enableFriends: true
   };
