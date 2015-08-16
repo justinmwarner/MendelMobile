@@ -1,9 +1,48 @@
-<ion-view view-title="Account">
-  <ion-content>
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
-    </ion-list>
+<ion-view view-title="Building 34 Tower 2">
+  <ion-content on-swipe-right="goBack()" on-swipe-left="goForward()">
+    <div class="list list-inset">
+        <div class="item item-divider">
+            Info
+        </div>
+
+        <a class="item item-left" href="#">
+            Last Checked:
+            <span class="item-note">
+                12/12/12 12:12
+            </span>
+        </a>
+
+        <a class="item item-left" href="#">
+           
+            Last Planted:
+            <span class="item-note">
+                12/1/12 12:12
+            </span>
+        </a>
+        <div class="item item-divider">
+            Input
+        </div>
+
+        <label class="item item-input item-select">
+            <div class="input-label">
+                Plant Type
+            </div>
+            <select>
+                <option>Mustard</option>
+                <option selected>Lettuce</option>
+                <option>Carrots</option>
+            </select>
+        </label>
+
+        <label class="item item-input">
+            <input type="number" placeholder="Yield">
+        </label>
+
+        <button class="button button-balanced">
+            Save
+        </button>
+
+
+    </div>
   </ion-content>
 </ion-view>
