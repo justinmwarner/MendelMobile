@@ -20,6 +20,21 @@ angular.module('starter.controllers', [])
 })
     .controller('DashCtrl', function ($scope, $ionicTabsDelegate) {
 
+	   // A confirm dialog
+	   $scope.showConfirm = function() {
+			 cordova.plugins.barcodeScanner.scan(
+			  function (result) {
+				  alert("We got a barcode\n" +
+						"Result: " + result.text + "\n" +
+						"Format: " + result.format + "\n" +
+						"Cancelled: " + result.cancelled);
+			  },
+			  function (error) {
+				  alert("Scanning failed: " + error);
+			  }
+		   );
+	   };
+
         $scope.goForward = function () {
             var selected = $ionicTabsDelegate.selectedIndex();
             if (selected != -1) {
