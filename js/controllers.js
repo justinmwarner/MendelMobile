@@ -20,8 +20,8 @@ angular.module('starter.controllers', [])
 })
     .controller('DashCtrl', function ($scope, $ionicTabsDelegate) {
 
-	   // A confirm dialog
-	   $scope.showConfirm = function() {
+		// Launch dialog for goto tower. TODO make it change tabs.
+	   $scope.gotoTower = function() {
 			 cordova.plugins.barcodeScanner.scan(
 			  function (result) {
 				  alert("We got a barcode\n" +
@@ -69,6 +69,34 @@ angular.module('starter.controllers', [])
     })
     .controller('AccountCtrl', function ($scope, $ionicTabsDelegate) {
 
+		// Barcode scan for setting tower #.
+	   $scope.setTower = function() {
+			 cordova.plugins.barcodeScanner.scan(
+			  function (result) {
+				  alert("Tower\n" +
+						"Result: " + result.text + "\n" +
+						"Format: " + result.format + "\n" +
+						"Cancelled: " + result.cancelled);
+			  },
+			  function (error) {
+				  alert("Scanning failed: " + error);
+			  }
+		   );
+	   };
+		// Barcode scan for setting unit #.
+	   $scope.setUnit = function() {
+			 cordova.plugins.barcodeScanner.scan(
+			  function (result) {
+				  alert("Unit\n" +
+						"Result: " + result.text + "\n" +
+						"Format: " + result.format + "\n" +
+						"Cancelled: " + result.cancelled);
+			  },
+			  function (error) {
+				  alert("Scanning failed: " + error);
+			  }
+		   );
+	   };
         $scope.goForward = function () {
             var selected = $ionicTabsDelegate.selectedIndex();
             if (selected != -1) {

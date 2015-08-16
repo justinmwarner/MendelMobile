@@ -2,6 +2,24 @@
   <ion-content on-swipe-right="goBack()" on-swipe-left="goForward()">
     <div class="list list-inset">
         <div class="item item-divider">
+            Scanning
+        </div>
+		
+		<div class="item item-button-right">
+		Location
+			<button class="button button-positive"  ng-click="setLocation()">
+				<i class="icon ion-map"></i>
+			</button>
+		</div>
+
+		<div class="item item-button-right">
+		Unit
+			<button class="button button-positive"  ng-click="setUnit()">
+				<i class="icon ion-compass"></i>
+			</button>
+		</div>
+	  
+        <div class="item item-divider">
             Info
         </div>
 
