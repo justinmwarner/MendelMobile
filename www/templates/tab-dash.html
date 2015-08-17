@@ -11,15 +11,11 @@
         
 
           <label class="item item-input item-select">
-              <div class="input-label">
-                  Building
-              </div>
-              <select>
-                  <option >All</option>
-                  <option selected>34</option>
-                  <option>H</option>
-                  <option>86</option>
-               </select>
+				  <div class="input-label">
+					  Building
+				  </div>
+				   <select data-ng-model="building" data-ng-options="building for building in buildings" ng-click="oldValue = selected" ng-change="getBuildingUnits(building, oldValue)">
+				</select>
           </label>
 
 
@@ -27,12 +23,8 @@
               <div class="input-label">
                   Unit
               </div>
-              <select>
-                  <option>All</option>
-                  <option>Tower 1</option>
-                  <option selected>Tower 2</option>
-                  <option>Cultivator 1</option>
-              </select>
+				<select data-ng-model="unit" ng-change="updateUnit()" data-ng-options="unit for unit in units">
+			    </select>
           </label>
 
       </div>
