@@ -84,10 +84,10 @@ angular.module('starter.controllers', [])
             );
         };
     })
-    .controller('ChatsCtrl', function($scope, $ionicTabsDelegate, userService) {
+    .controller('ChatsCtrl', function($scope, $ionicTabsDelegate, userService, $ionicModal) {
         $scope.title = "Building " + userService.GetLocation() + " Unit: " + userService.GetUnit();
-
-        dashboard3.render();
+		
+		
 
         $scope.goForward = function() {
             var selected = $ionicTabsDelegate.selectedIndex();
@@ -101,7 +101,16 @@ angular.module('starter.controllers', [])
             if (selected != -1 && selected != 0) {
                 $ionicTabsDelegate.select(selected - 1);
             }
-        }
+        } 
+			$ionicModal.fromTemplateUrl('templates/modal.html', function($ionicModal) {
+				$scope.modal = $ionicModal;
+			}, {
+				// Use our scope for the scope of the modal to keep it simple
+				scope: $scope,
+				// The animation we want to use for the modal entrance
+				animation: 'slide-in-up' 
+			}); 
+        dashboard3.render();
     })
     .controller('AccountCtrl', function($scope, $ionicTabsDelegate, userService) {
         $scope.title = "Building " + userService.GetLocation() + " Unit: " + userService.GetUnit();

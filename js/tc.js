@@ -109,8 +109,21 @@ var dashboard3 = (function () {
         $("#content").html(html);
 
 
-
-
+		expandCollapse = function(thisChart, otherChart){
+				var otherChartObject = $('#'+otherChart.element.id); // Get the other chart in this row.
+				if(otherChartObject.css('display')=='none')
+				{
+					// If it's already gone, make it visible and refresh.
+					otherChartObject.css('display', 'block');
+					thisChart.flush();
+				}
+				else
+				{
+					// Else, make it invisible,and refresh the other chart.
+					otherChartObject.css('display', 'none');
+					thisChart.flush();
+				}
+			}
 
         var chart1 = c3.generate({
             bindto: '#chart1',
@@ -119,7 +132,8 @@ var dashboard3 = (function () {
                 columns: [
                     ['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
                     ['data1', 30, 200, 100, 400, 150, 250]
-                ]
+                ],
+                onclick: function (d, i) { expandCollapse(chart1, chart2); }
             },
             axis: {
                 x: {
@@ -139,9 +153,7 @@ var dashboard3 = (function () {
                     ['data', 6.8]
                 ],
                 type: 'gauge',
-                onclick: function (d, i) { console.log("onclick", d, i); },
-                onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-                onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+                onclick: function (d, i) { expandCollapse(chart2, chart1); }
             },
             gauge: {
                 label: {
@@ -176,7 +188,8 @@ var dashboard3 = (function () {
                 columns: [
                     ['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
                     ['data1', 30, 200, 100, 400, 150, 250]
-                ]
+                ],
+                onclick: function (d, i) { expandCollapse(chart3, chart4); }
             },
             axis: {
                 x: {
@@ -188,29 +201,9 @@ var dashboard3 = (function () {
             }
         });
 
-        setTimeout(function () {
-            var len1 = Math.random() * 8 + 2;
-            var data = ["data1"];
-            while (len1 > 0) {
-                data.push(Math.random() * 1000);
-                len1--;
-            }
-
-            var lowRand = Math.random() * 2 + 4.8;
-            chart1.load({
-                columns: [
-                    data
-                ]
-            });
-            chart2.load({
-                columns: [['data', lowRand.toFixed(2)]]
-            });
-            chart3.load({
-                columns: [
-                    data
-                ]
-            });
-        }, 100);
+		chart1.flush();
+		chart2.flush();
+		chart3.flush();
 
         setInterval(function () {
             var len1 = Math.random() * 8 + 2;
