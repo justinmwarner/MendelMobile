@@ -46,6 +46,23 @@ module.exports = [
         "clobbers": [
             "cordova.plugins.barcodeScanner"
         ]
+    },
+    {
+        "file": "plugins/com.msopentech.azure-mobile-services/www/MobileServices.Web.Ext.js",
+        "id": "com.msopentech.azure-mobile-services.AzureMobileServices.Ext",
+        "runs": true
+    },
+    {
+        "file": "plugins/com.msopentech.azure-mobile-services/www/MobileServices.Web-1.1.3.js",
+        "id": "com.msopentech.azure-mobile-services.AzureMobileServices",
+        "runs": true
+    },
+    {
+        "file": "plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js",
+        "id": "org.apache.cordova.inappbrowser.inappbrowser",
+        "clobbers": [
+            "window.open"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -57,7 +74,9 @@ module.exports.metadata =
     "cordova-plugin-splashscreen": "2.1.0",
     "cordova-plugin-whitelist": "1.0.0",
     "phonegap-plugin-barcodescanner": "4.0.1",
-    "com.jamiestarke.webviewdebug": "1.0.8"
+    "com.jamiestarke.webviewdebug": "1.0.8",
+    "com.msopentech.azure-mobile-services": "0.1.4",
+    "org.apache.cordova.inappbrowser": "0.6.0"
 }
 // BOTTOM OF METADATA
 });

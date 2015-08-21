@@ -15,6 +15,14 @@ angular.module('starter.controllers', [])
     };
 })
     .controller('DashCtrl', function($scope, $ionicTabsDelegate, userService) {
+		var client = new WindowsAzure.MobileServiceClient(
+			"https://mendeltest.azure-mobile.net/",
+			"DcSxXgTBduCSdlJDrbgPMhicfZfTVl30"
+			);
+			
+		var item = { text: "Awesome item" };
+		client.getTable("Table").insert(item);
+		
         var buildingUnits = [
             ["All"],
             ["All", "Cultivator A", "Cultivator B", "Tower 1", "Tower 2", "Tower 3"],

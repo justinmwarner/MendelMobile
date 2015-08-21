@@ -55,5 +55,21 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "com.msopentech.azure-mobile-services": {
+        "source": {
+            "type": "registry",
+            "id": "com.msopentech.azure-mobile-services"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.inappbrowser": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.inappbrowser"
+        },
+        "is_top_level": false,
+        "variables": {}
     }
 }
