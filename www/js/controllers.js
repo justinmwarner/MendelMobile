@@ -16,12 +16,15 @@ angular.module('starter.controllers', [])
 })
     .controller('DashCtrl', function($scope, $ionicTabsDelegate, userService) {
 		var client = new WindowsAzure.MobileServiceClient(
-			"https://mendeltest.azure-mobile.net/",
-			"DcSxXgTBduCSdlJDrbgPMhicfZfTVl30"
-			);
-			
-		var item = { text: "Awesome item" };
-		client.getTable("Table").insert(item);
+			"https://mendelmobile.azurewebsites.net",
+			"https://default-sql-westusf921732c9fe045958ccbb50b01aef1f9.azurewebsites.net",
+			""
+		);
+		var todoItem = { 
+			text: "Awesome item",
+			complete: false
+		};
+		client.getTable("TodoItem").insert(todoItem);
 		
         var buildingUnits = [
             ["All"],
